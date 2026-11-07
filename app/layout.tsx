@@ -30,33 +30,32 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        <ClerkProvider>
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <Suspense>
-              <Show when="signed-out">
-                <SignInButton />
-                <SignUpButton>
-                  <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                    Sign Up
-                  </button>
-                </SignUpButton>
-              </Show>
-              <Show when="signed-in">
-                <UserButton />
-              </Show>
-            </Suspense>
-          </header>
+    <ClerkProvider>
+      <html lang="en" className={`${poppins.variable} h-full antialiased`}>
+       <body className="min-h-full flex flex-col">
           <nav className="bg-primary p-4 text-white h-20 flex items-center justify-between"> 
             <Link href="/" className="font-bold text-2xl flex gap-1 items-center" >
               <ChartColumnBigIcon className="text-lime-500" /> NextCash
             </Link>
-            <div>auth button</div>
+            <div>
+              <Suspense>
+                <Show when="signed-out">
+                  <SignInButton />
+                  <SignUpButton>
+                    <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                      Sign Up
+                    </button>
+                  </SignUpButton>
+                </Show>
+                <Show when="signed-in">
+                  <UserButton />
+                </Show>
+              </Suspense>
+            </div>
           </nav>
           {children}
-        </ClerkProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
