@@ -1,4 +1,5 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function NewTransactionPage() {
     return (<div className="py-10 px-6">
@@ -21,5 +22,11 @@ export default function NewTransactionPage() {
               </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      <Card className="mt-4 max-w-screen-md">
+        <CardHeader>
+          <CardTitle>New Transaction</CardTitle>
+        </CardHeader>
+        <CardContent>new transaction form</CardContent>
+      </Card>
     </div>);
 }
